@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transforme Sua Carreira — Ensino Superior EAD</title>
+<meta name="description" content="Descubra o curso ideal para você. Graduação EAD com qualidade, flexibilidade e preço que cabe no seu bolso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #faf8f3;
+    --gold: #c8a84b;
+    --gold-light: #e8d48a;
+    --teal: #1a5c5c;
+    --teal-light: #2a8080;
+    --cream: #f0ead8;
+    --muted: #7a7570;
+    --white: #ffffff;
+    --shadow: rgba(13,13,13,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,168,75,0.2);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 30px var(--shadow); }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 900;
+    letter-spacing: -.02em; color: var(--teal);
+  }
+  .logo span { color: var(--gold); }
+  .nav-cta {
+    background: var(--teal); color: var(--white);
+    padding: .55rem 1.4rem; border-radius: 50px;
+    font-size: .85rem; font-weight: 600;
+    text-decoration: none; letter-spacing: .02em;
+    transition: background .2s, transform .2s;
+  }
+  .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 7rem 5vw 3.5rem;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(200,168,75,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(26,92,92,0.1) 0%, transparent 70%),
+      var(--paper);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a84b' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: .5;
+  }
+  .hero-inner {
+    max-width: 1160px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem;
+    align-items: start; position: relative;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.4);
+    padding: .4rem 1rem; border-radius: 50px;
+    font-size: .78rem; font-weight: 600; color: #8a6820;
+    letter-spacing: .06em; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-badge::before { content: '✦'; font-size: .7rem; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1; font-weight: 900;
+    letter-spacing: -.03em;
+    color: var(--ink);
+    animation: fadeUp .6s .1s ease both;
+  }
+  h1 em { font-style: normal; color: var(--teal); }
+  .hero-sub {
+    margin-top: 1rem;
+    font-size: 1rem; line-height: 1.65;
+    color: var(--muted); max-width: 480px;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-actions {
+    margin-top: 1.6rem; display: flex; gap: .8rem; flex-wrap: wrap;
+    animation: fadeUp .6s .3s ease both;
+  }
+  .btn-primary {
+    background: var(--teal); color: var(--white);
+    padding: .85rem 2rem; border-radius: 50px;
+    font-size: .95rem; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all .25s; display: inline-flex; align-items: center; gap: .5rem;
+    box-shadow: 0 6px 24px rgba(26,92,92,0.3);
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(26,92,92,0.35); }
+  /* Direct link button — gold, prominent */
+  .btn-direct {
+    background: var(--gold); color: var(--ink);
+    padding: .85rem 2rem; border-radius: 50px;
+    font-size: .95rem; font-weight: 700;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: all .25s; display: inline-flex; align-items: center; gap: .5rem;
+    box-shadow: 0 6px 24px rgba(200,168,75,0.35);
+  }
+  .btn-direct:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,168,75,0.45); }
+  .btn-secondary {
+    background: transparent; color: var(--teal);
+    padding: .85rem 1.8rem; border-radius: 50px;
+    font-size: .95rem; font-weight: 600;
+    text-decoration: none; border: 2px solid var(--teal);
+    cursor: pointer; transition: all .25s;
+  }
+  .btn-secondary:hover { background: var(--teal); color: var(--white); }
+  .hero-stats {
+    display: flex; gap: 1.8rem; margin-top: 2rem; flex-wrap: wrap;
+    animation: fadeUp .6s .4s ease both;
+  }
+  .stat { }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 900; color: var(--gold);
+  }
+  .stat-label { font-size: .78rem; color: var(--muted); margin-top: .1rem; }
+
+  /* Direct access strip */
+  .direct-strip {
+    background: var(--white);
+    border: 1.5px solid rgba(200,168,75,0.3);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.8rem;
+    animation: fadeUp .6s .5s ease both;
+  }
+  .direct-strip-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: .8rem;
+  }
+  .direct-buttons { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .direct-btn {
+    background: var(--cream); color: var(--teal);
+    padding: .5rem 1rem; border-radius: 50px;
+    font-size: .82rem; font-weight: 600;
+    text-decoration: none; border: 1px solid rgba(26,92,92,0.15);
+    transition: all .2s; display: inline-flex; align-items: center; gap: .4rem;
+  }
+  .direct-btn:hover { background: var(--teal); color: var(--white); transform: translateY(-1px); }
+
+  /* Hero visual — quiz embedded */
+  .hero-visual {
+    animation: fadeIn .8s .3s ease both;
+  }
+  .card-stack { position: relative; }
+  .visual-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 40px var(--shadow);
+    border: 1px solid rgba(200,168,75,0.15);
+  }
+  .visual-card.main { padding: 2rem; }
+  .card-icon { font-size: 2rem; margin-bottom: .8rem; }
+  .card-title { font-weight: 700; font-size: 1rem; color: var(--ink); }
+  .card-desc { font-size: .85rem; color: var(--muted); margin-top: .3rem; line-height: 1.5; }
+  .progress-bar { background: var(--cream); border-radius: 50px; height: 6px; margin-top: 1rem; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 50px; background: linear-gradient(90deg, var(--teal), var(--gold)); width: 0; transition: width 1.5s ease; }
+  .mini-cards { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: .8rem; }
+  .mini-card {
+    background: var(--white); border-radius: 12px;
+    padding: 1rem; box-shadow: 0 4px 16px var(--shadow);
+    border: 1px solid rgba(200,168,75,0.12);
+    text-align: center;
+  }
+  .mini-card .emoji { font-size: 1.5rem; }
+  .mini-card .label { font-size: .75rem; font-weight: 600; color: var(--muted); margin-top: .4rem; }
+  .floating-badge {
+    position: absolute; top: -14px; right: -14px;
+    background: var(--gold); color: var(--white);
+    border-radius: 50%; width: 56px; height: 56px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: .65rem; font-weight: 700; line-height: 1.1; text-align: center;
+    box-shadow: 0 4px 16px rgba(200,168,75,0.4);
+    animation: pulse 2s infinite;
+  }
+
+  /* ── QUIZ SECTION ── */
+  .quiz-section {
+    padding: 4rem 5vw;
+    background: var(--teal);
+    position: relative; overflow: hidden;
+  }
+  .quiz-section::before {
+    content: '';
+    position: absolute; top: -80px; left: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: rgba(200,168,75,0.1);
+  }
+  .quiz-section::after {
+    content: '';
+    position: absolute; bottom: -100px; right: -60px;
+    width: 350px; height: 350px; border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .quiz-wrapper { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+  .section-tag {
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .quiz-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--white); line-height: 1.15;
+    margin-bottom: .8rem;
+  }
+  .quiz-section .sub {
+    color: rgba(255,255,255,0.65); font-size: 1rem; margin-bottom: 3rem;
+  }
+
+  #quiz-box {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+  }
+  .quiz-progress-bar {
+    background: rgba(255,255,255,0.15); border-radius: 50px; height: 4px; margin-bottom: 2rem;
+  }
+  .quiz-progress-fill {
+    height: 100%; border-radius: 50px; background: var(--gold);
+    transition: width .5s ease;
+  }
+  .quiz-step { display: none; }
+  .quiz-step.active { display: block; animation: fadeUp .4s ease; }
+  .quiz-question {
+    font-size: 1.2rem; font-weight: 600; color: var(--white);
+    margin-bottom: 1.5rem; line-height: 1.4;
+  }
+  .quiz-options { display: flex; flex-direction: column; gap: .75rem; }
+  .quiz-option {
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 1rem 1.3rem;
+    cursor: pointer;
+    color: var(--white); font-size: .95rem;
+    transition: all .2s;
+    text-align: left; width: 100%;
+    display: flex; align-items: center; gap: .8rem;
+  }
+  .quiz-option:hover { background: rgba(200,168,75,0.2); border-color: var(--gold); transform: translateX(4px); }
+  .quiz-option.selected { background: rgba(200,168,75,0.25); border-color: var(--gold); }
+  .option-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  /* Quiz result */
+  #quiz-result { display: none; text-align: center; }
+  #quiz-result.active { display: block; animation: fadeUp .5s ease; }
+  .result-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+  .result-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--white); margin-bottom: .5rem; }
+  .result-desc { color: rgba(255,255,255,.7); font-size: .95rem; line-height: 1.6; margin-bottom: 2rem; }
+  .result-cta {
+    background: var(--gold); color: var(--ink);
+    padding: 1rem 2.5rem; border-radius: 50px;
+    font-size: 1rem; font-weight: 700;
+    text-decoration: none; display: inline-block;
+    transition: all .25s;
+    box-shadow: 0 6px 24px rgba(200,168,75,0.4);
+  }
+  .result-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,168,75,0.5); }
+  .result-restart {
+    display: block; margin-top: 1rem;
+    color: rgba(255,255,255,.5); font-size: .85rem; cursor: pointer;
+    background: none; border: none; text-decoration: underline;
+  }
+  .result-restart:hover { color: rgba(255,255,255,.8); }
+
+  /* ── BENEFITS ── */
+  .benefits { padding: 6rem 5vw; background: var(--paper); }
+  .section-header { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    line-height: 1.15; margin-bottom: .8rem;
+  }
+  .section-header p { color: var(--muted); font-size: 1rem; line-height: 1.65; }
+  .tag-line {
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem; display: block;
+  }
+  .benefits-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .benefit-card {
+    background: var(--white); border-radius: 18px;
+    padding: 2rem; border: 1px solid var(--cream);
+    transition: all .3s;
+    position: relative; overflow: hidden;
+  }
+  .benefit-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .3s;
+  }
+  .benefit-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px var(--shadow); }
+  .benefit-card:hover::before { transform: scaleX(1); }
+  .benefit-emoji { font-size: 2.2rem; margin-bottom: 1.2rem; display: block; }
+  .benefit-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; }
+  .benefit-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── HOW IT WORKS ── */
+  .how { padding: 6rem 5vw; background: var(--cream); }
+  .steps { max-width: 900px; margin: 0 auto; display: grid; gap: 2rem; }
+  .step {
+    display: grid; grid-template-columns: 64px 1fr; gap: 2rem; align-items: start;
+  }
+  .step-num {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--teal); color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; box-shadow: 0 8px 24px rgba(26,92,92,0.25);
+  }
+  .step-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .4rem; }
+  .step-content p { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { padding: 6rem 5vw; background: var(--paper); }
+  .testi-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .testi-card {
+    background: var(--white); border-radius: 18px;
+    padding: 1.8rem; border: 1px solid var(--cream);
+  }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: 1rem; }
+  .testi-text { font-size: .9rem; line-height: 1.7; color: var(--ink); margin-bottom: 1.2rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: .8rem; }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: .9rem;
+  }
+  .author-name { font-weight: 700; font-size: .9rem; }
+  .author-role { font-size: .78rem; color: var(--muted); }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 6rem 5vw; background: var(--paper); }
+  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .8rem; }
+  .faq-item {
+    background: var(--white); border-radius: 14px;
+    border: 1px solid var(--cream); overflow: hidden;
+  }
+  .faq-q {
+    width: 100%; text-align: left; padding: 1.2rem 1.5rem;
+    background: none; border: none; cursor: pointer;
+    font-size: .95rem; font-weight: 600; color: var(--ink);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    transition: background .2s;
+  }
+  .faq-q:hover { background: var(--cream); }
+  .faq-arrow { font-size: .9rem; transition: transform .3s; flex-shrink: 0; color: var(--teal); }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    font-size: .88rem; color: var(--muted); line-height: 1.7;
+    transition: max-height .35s ease, padding .35s;
+    padding: 0 1.5rem;
+  }
+  .faq-item.open .faq-a { max-height: 300px; padding: 0 1.5rem 1.2rem; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    padding: 7rem 5vw;
+    background:
+      radial-gradient(ellipse 70% 60% at 30% 50%, rgba(26,92,92,0.95), var(--teal)),
+      var(--teal);
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: '✦'; font-size: 20rem; opacity: .03;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: serif; color: var(--white);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--white); margin-bottom: 1rem;
+    position: relative;
+  }
+  .final-cta p {
+    color: rgba(255,255,255,.7); font-size: 1.1rem;
+    margin-bottom: 2.5rem; max-width: 500px; margin-left: auto; margin-right: auto;
+    position: relative;
+  }
+  .final-cta .btn-gold {
+    background: var(--gold); color: var(--ink);
+    padding: 1.1rem 3rem; border-radius: 50px;
+    font-size: 1.05rem; font-weight: 700;
+    text-decoration: none; display: inline-block;
+    transition: all .25s; position: relative;
+    box-shadow: 0 8px 32px rgba(200,168,75,0.5);
+  }
+  .final-cta .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(200,168,75,0.6); }
+  .trust-row {
+    display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 2.5rem; position: relative;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: .5rem;
+    color: rgba(255,255,255,.65); font-size: .85rem;
+  }
+  .trust-item span { font-size: 1rem; }
+
+  /* ── MOBILE STICKY CTA ── */
+  #mobile-cta {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: var(--gold); color: var(--ink);
+    text-align: center; padding: 1.1rem;
+    font-size: 1rem; font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 -4px 24px rgba(200,168,75,0.4);
+  }
+  @media (max-width: 600px) {
+    #mobile-cta { display: block; }
+    footer { padding-bottom: 5rem; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: rgba(255,255,255,.4);
+    text-align: center; padding: 2rem 5vw;
+    font-size: .8rem; line-height: 1.7;
+  }
+  footer a { color: rgba(255,255,255,.5); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE — TABLET ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-visual { display: none; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr 1fr; }
+    .trust-row { gap: 1.2rem; }
+  }
+  /* ── RESPONSIVE — MOBILE ── */
+  @media (max-width: 600px) {
+    nav { padding: .9rem 4vw; }
+    .logo { font-size: 1.1rem; }
+    .nav-cta { padding: .45rem 1rem; font-size: .8rem; }
+    .hero { padding: 5.5rem 4vw 2.5rem; }
+    h1 { font-size: 2rem; }
+    .hero-sub { font-size: .92rem; }
+    .hero-actions { flex-direction: column; gap: .7rem; }
+    .btn-primary, .btn-direct, .btn-secondary { width: 100%; justify-content: center; text-align: center; padding: .9rem 1.5rem; font-size: .95rem; }
+    .direct-strip { padding: 1rem; }
+    .direct-buttons { gap: .4rem; }
+    .direct-btn { font-size: .8rem; padding: .45rem .9rem; }
+    .hero-stats { gap: 1.2rem; margin-top: 1.5rem; }
+    .stat-number { font-size: 1.5rem; }
+    .stat-label { font-size: .73rem; }
+    .quiz-section { padding: 3rem 4vw; }
+    .quiz-section h2 { font-size: 1.6rem; }
+    .quiz-section .sub { font-size: .88rem; margin-bottom: 2rem; }
+    #quiz-box { padding: 1.4rem; }
+    .quiz-question { font-size: 1rem; }
+    .quiz-option { font-size: .88rem; padding: .85rem 1rem; }
+    .result-title { font-size: 1.4rem; }
+    .result-cta { padding: .85rem 1.8rem; font-size: .95rem; display: block; text-align: center; }
+    .benefits { padding: 3.5rem 4vw; }
+    .benefits-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .benefit-card { padding: 1.4rem; }
+    .section-header h2 { font-size: 1.6rem; }
+    .section-header { margin-bottom: 2.5rem; }
+    .how { padding: 3.5rem 4vw; }
+    .step { grid-template-columns: 44px 1fr; gap: .8rem; }
+    .step-num { width: 44px; height: 44px; font-size: 1.1rem; }
+    .testimonials { padding: 3.5rem 4vw; }
+    .testi-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .faq-section { padding: 3.5rem 4vw; }
+    .faq-q { font-size: .88rem; padding: 1rem 1.1rem; }
+    .faq-a { font-size: .84rem; }
+    .faq-item.open .faq-a { padding: 0 1.1rem 1rem; }
+    .final-cta { padding: 4rem 4vw; }
+    .final-cta h2 { font-size: 1.8rem; }
+    .final-cta p { font-size: .95rem; }
+    .final-cta .btn-gold { padding: .95rem 2rem; font-size: .95rem; display: block; max-width: 320px; margin: 0 auto; }
+    .trust-row { flex-direction: column; align-items: center; gap: .8rem; }
+    footer { padding: 1.8rem 4vw; font-size: .78rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">Edu<span>Futuro</span></div>
+  <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="nav-cta">Ver cursos →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Educação que transforma vidas</div>
+      <h1>Seu diploma.<br>Sua <em>virada</em><br>de carreira.</h1>
+      <p class="hero-sub">Mais de 1.000 cursos de graduação EAD reconhecidos pelo MEC. Comece hoje, estude no seu ritmo e conquiste o futuro que você merece.</p>
+
+      <div class="hero-actions">
+        <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="btn-direct">🎓 Ver todos os cursos</a>
+        <a href="#quiz" class="btn-secondary">Descobrir meu perfil</a>
+      </div>
+
+      <!-- Acesso direto por área -->
+      <div class="direct-strip">
+        <div class="direct-strip-label">Acesso rápido por área de interesse</div>
+        <div class="direct-buttons">
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="direct-btn">💼 Negócios</a>
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="direct-btn">💻 Tecnologia</a>
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="direct-btn">🏥 Saúde</a>
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="direct-btn">📚 Humanas</a>
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="direct-btn">⚖️ Direito</a>
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="direct-btn">🏗️ Engenharia</a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number" data-count="1000">0</div>
+          <div class="stat-label">Cursos disponíveis</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="98">0</div>
+          <div class="stat-label">% reconhecidos MEC</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number" data-count="500000">0</div>
+          <div class="stat-label">Alunos formados</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="card-stack">
+        <div class="visual-card main">
+          <div class="card-icon">🎓</div>
+          <div class="card-title">Graduação EAD — 100% online</div>
+          <div class="card-desc">Estude de onde quiser, quando quiser. Plataforma moderna com suporte 24h.</div>
+          <div class="progress-bar"><div class="progress-fill" id="prog1" data-width="78"></div></div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.5rem;">78% dos alunos concluem dentro do prazo</div>
+          <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="btn-direct" style="margin-top:1.2rem;font-size:.88rem;padding:.7rem 1.5rem;">Garantir minha vaga →</a>
+        </div>
+        <div class="floating-badge">100%<br>MEC</div>
+      </div>
+      <div class="mini-cards">
+        <div class="mini-card">
+          <div class="emoji">💳</div>
+          <div class="label">Mensalidades acessíveis</div>
+        </div>
+        <div class="mini-card">
+          <div class="emoji">📱</div>
+          <div class="label">App para estudar</div>
+        </div>
+        <div class="mini-card">
+          <div class="emoji">🏆</div>
+          <div class="label">Certificado reconhecido</div>
+        </div>
+        <div class="mini-card">
+          <div class="emoji">🤝</div>
+          <div class="label">Suporte dedicado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="quiz-section" id="quiz">
+  <div class="quiz-wrapper">
+    <div class="section-tag">✦ Quiz interativo</div>
+    <h2>Qual curso é ideal para você?</h2>
+    <p class="sub">Responda 4 perguntas e descubra a área certa — ou <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" style="color:var(--gold-light);font-weight:700;text-decoration:underline;">acesse direto o catálogo completo →</a></p>
+
+    <div id="quiz-box">
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="quiz-prog" style="width:0%"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="quiz-step active" data-step="1">
+        <div class="quiz-question">1 de 4 — Qual área mais combina com você?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="negocios" onclick="selectOption(this)"><span class="option-icon">💼</span> Negócios, Gestão e Empreendedorismo</button>
+          <button class="quiz-option" data-value="saude" onclick="selectOption(this)"><span class="option-icon">🏥</span> Saúde e Bem-estar</button>
+          <button class="quiz-option" data-value="tec" onclick="selectOption(this)"><span class="option-icon">💻</span> Tecnologia e Inovação</button>
+          <button class="quiz-option" data-value="humanas" onclick="selectOption(this)"><span class="option-icon">📚</span> Educação, Comunicação e Humanas</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-question">2 de 4 — Qual é seu principal objetivo?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="emprego" onclick="selectOption(this)"><span class="option-icon">🚀</span> Conseguir um emprego melhor</button>
+          <button class="quiz-option" data-value="salario" onclick="selectOption(this)"><span class="option-icon">💰</span> Aumentar meu salário</button>
+          <button class="quiz-option" data-value="proprio" onclick="selectOption(this)"><span class="option-icon">🏢</span> Abrir meu próprio negócio</button>
+          <button class="quiz-option" data-value="paixao" onclick="selectOption(this)"><span class="option-icon">❤️</span> Seguir minha vocação</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-question">3 de 4 — Quantas horas por semana você pode dedicar?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="pouco" onclick="selectOption(this)"><span class="option-icon">⏰</span> Menos de 5 horas — tenho pouco tempo</button>
+          <button class="quiz-option" data-value="medio" onclick="selectOption(this)"><span class="option-icon">📅</span> 5 a 10 horas — consigo me organizar</button>
+          <button class="quiz-option" data-value="bastante" onclick="selectOption(this)"><span class="option-icon">🔥</span> Mais de 10 horas — estou comprometido</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-question">4 de 4 — Qual formato de estudo você prefere?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" data-value="ead" onclick="selectOption(this)"><span class="option-icon">🌐</span> 100% online — máxima flexibilidade</button>
+          <button class="quiz-option" data-value="hibrido" onclick="selectOption(this)"><span class="option-icon">🔀</span> Semipresencial — equilíbrio online/presencial</button>
+          <button class="quiz-option" data-value="qualquer" onclick="selectOption(this)"><span class="option-icon">✨</span> Tanto faz — quero o melhor custo-benefício</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div id="quiz-result">
+        <div class="result-icon" id="result-icon">🎓</div>
+        <div class="result-title" id="result-title">Ótima escolha!</div>
+        <div class="result-desc" id="result-desc">Com base nas suas respostas, encontramos cursos perfeitos para o seu perfil.</div>
+        <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="result-cta" id="result-cta">
+          Ver cursos recomendados para mim →
+        </a>
+        <button class="result-restart" onclick="restartQuiz()">Refazer o quiz</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="vantagens">
+  <div class="section-header reveal">
+    <span class="tag-line">✦ Por que escolher EAD?</span>
+    <h2>Educação de qualidade, <em>do seu jeito</em></h2>
+    <p>A graduação EAD quebrou barreiras. Hoje você tem acesso aos melhores cursos do Brasil sem abrir mão da sua rotina.</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card reveal">
+      <span class="benefit-emoji">🕐</span>
+      <h3>Estude no seu horário</h3>
+      <p>Sem grades fixas. Assista às aulas quando e onde quiser — no ônibus, em casa, no intervalo do trabalho.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <span class="benefit-emoji">💸</span>
+      <h3>Mensalidades até 80% menores</h3>
+      <p>Comparado ao presencial, o EAD oferece o mesmo diploma reconhecido pelo MEC por uma fração do custo.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <span class="benefit-emoji">📜</span>
+      <h3>Diploma idêntico ao presencial</h3>
+      <p>Reconhecido pelo MEC e pelo mercado de trabalho. Nenhuma diferenciação no seu currículo ou na sua carreira.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <span class="benefit-emoji">🌍</span>
+      <h3>De qualquer lugar do Brasil</h3>
+      <p>Você em Manaus, São Paulo ou no interior da Bahia — o acesso é idêntico para todos os alunos.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <span class="benefit-emoji">📲</span>
+      <h3>Plataforma moderna e intuitiva</h3>
+      <p>Aplicativo com aulas em vídeo, fóruns, provas online e suporte de tutores especializados.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <span class="benefit-emoji">🎯</span>
+      <h3>Mais de 100 cursos de graduação</h3>
+      <p>De Administração a Engenharia, de Psicologia a Tecnologia da Informação — escolha o que mais combina com você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="como-funciona">
+  <div class="section-header reveal">
+    <span class="tag-line">✦ Passo a passo</span>
+    <h2>Simples assim: 4 passos para<br>começar sua graduação</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Escolha seu curso</h3>
+        <p>Navegue pelo catálogo completo de graduações. Use nosso quiz para descobrir qual área combina com seu perfil e objetivos de carreira.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Faça sua inscrição online</h3>
+        <p>Processo 100% digital. Em minutos você preenche o formulário, envia seus documentos e garante sua vaga sem burocracia.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Acesse o material e as aulas</h3>
+        <p>Assim que aprovado, você já tem acesso ao portal do aluno com todo o conteúdo, vídeos e suporte de tutores dedicados.</p>
+      </div>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Conquiste seu diploma e transforme sua carreira</h3>
+        <p>Ao concluir, você recebe um diploma reconhecido pelo MEC, idêntico ao do ensino presencial, que abre portas no mercado de trabalho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-header reveal">
+    <span class="tag-line">✦ Histórias reais</span>
+    <h2>Vidas transformadas pelo ensino superior</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Trabalho em período integral e achei que não conseguiria me graduar. Com o EAD estudei nos fins de semana e consegui meu diploma de Administração em 4 anos. Hoje sou gerente da empresa!"</p>
+      <div class="testi-author">
+        <div class="avatar">MR</div>
+        <div>
+          <div class="author-name">Marcos Ribeiro</div>
+          <div class="author-role">Formado em Administração</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Moro no interior e a universidade mais próxima ficava a 3 horas. O EAD foi a solução perfeita. Plataforma excelente, professores atenciosos e mensalidade que cabia no meu orçamento."</p>
+      <div class="testi-author">
+        <div class="avatar">AC</div>
+        <div>
+          <div class="author-name">Ana Carvalho</div>
+          <div class="author-role">Formada em Pedagogia</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Sempre quis trabalhar com TI mas não tinha diploma. Me matriculei em Sistemas de Informação e 6 meses depois já consegui minha primeira vaga na área. Vale muito o investimento!"</p>
+      <div class="testi-author">
+        <div class="avatar">FS</div>
+        <div>
+          <div class="author-name">Felipe Santos</div>
+          <div class="author-role">Formado em Sistemas de Informação</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="section-header reveal">
+    <span class="tag-line">✦ Perguntas frequentes</span>
+    <h2>Tudo o que você precisa saber</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">O diploma EAD é reconhecido no mercado de trabalho? <span class="faq-arrow">▼</span></button>
+      <div class="faq-a">Sim! O diploma EAD de instituições credenciadas pelo MEC tem o mesmo valor legal e reconhecimento do diploma presencial. Não há nenhuma diferença para o mercado de trabalho ou para concursos públicos.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Preciso fazer vestibular ou ENEM? <span class="faq-arrow">▼</span></button>
+      <div class="faq-a">A maioria dos cursos EAD aceita a nota do ENEM — qualquer nota! Mas também é possível ingressar por processo seletivo próprio da instituição, que geralmente consiste em uma redação ou prova simples.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Como funcionam as provas e avaliações? <span class="faq-arrow">▼</span></button>
+      <div class="faq-a">A maioria das avaliações é feita online, no próprio portal do aluno. Algumas disciplinas podem exigir provas presenciais em polos credenciados — geralmente 1 a 2 vezes por semestre, em datas flexíveis.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Qual é a duração dos cursos? <span class="faq-arrow">▼</span></button>
+      <div class="faq-a">Depende do curso. Tecnólogos têm entre 2 e 3 anos. Licenciaturas e bacharelados geralmente entre 3,5 e 5 anos. Todos seguem a grade curricular mínima exigida pelo MEC.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Posso parcelar ou financiar a mensalidade? <span class="faq-arrow">▼</span></button>
+      <div class="faq-a">Sim! Há diversas opções: pagamento mensal, bolsas de estudo, FIES e programas de financiamento próprios das instituições. É possível encontrar cursos com mensalidades a partir de R$ 99.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Pronto para dar o primeiro passo?</h2>
+  <p>Centenas de cursos reconhecidos pelo MEC. Matricule-se hoje e comece a transformar sua carreira.</p>
+  <a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" class="btn-gold">
+    Quero me matricular agora →
+  </a>
+  <div class="trust-row">
+    <div class="trust-item"><span>✅</span> Cursos reconhecidos pelo MEC</div>
+    <div class="trust-item"><span>🔒</span> Cadastro 100% seguro</div>
+    <div class="trust-item"><span>💬</span> Suporte ao aluno 24h</div>
+    <div class="trust-item"><span>🎓</span> Diploma oficial</div>
+  </div>
+</section>
+
+<!-- BOTÃO FLUTUANTE MOBILE -->
+<a href="https://estacio.br/selecao?cod_agente=14369444&u=286166&end=1" target="_blank" id="mobile-cta">
+  🎓 Ver cursos e se matricular
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 EduFuturo — Informações educacionais sobre graduação EAD no Brasil.</p>
+  <p style="margin-top:.4rem;">Este site contém links para parceiros educacionais. <a href="#">Política de Privacidade</a> · <a href="#">Termos de Uso</a></p>
+</footer>
+
+<script>
+// NAV scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const duration = 1800;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = target >= 10000
+        ? Math.floor(current).toLocaleString('pt-BR')
+        : Math.floor(current) + (el.dataset.count == '98' ? '%' : '+');
+    }, 16);
+  });
+}
+
+// Progress bar
+setTimeout(() => {
+  document.querySelectorAll('.progress-fill[data-width]').forEach(el => {
+    el.style.width = el.dataset.width + '%';
+  });
+}, 500);
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.closest('.hero-stats')) animateCounters();
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter trigger on hero
+const heroObs = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) animateCounters();
+}, { threshold: 0.5 });
+const statsEl = document.querySelector('.hero-stats');
+if (statsEl) heroObs.observe(statsEl);
+
+// QUIZ
+let currentStep = 1;
+const totalSteps = 4;
+const answers = {};
+
+const results = {
+  negocios: { icon: '💼', title: 'Carreira nos Negócios', desc: 'Seu perfil combina com Administração, Marketing, RH, Ciências Contábeis ou Gestão Financeira. Cursos com alta empregabilidade e ótima remuneração.' },
+  saude:    { icon: '🏥', title: 'Área da Saúde',        desc: 'Seu perfil combina com Enfermagem, Nutrição, Farmácia, Fisioterapia ou Gestão em Saúde. Uma das áreas com maior crescimento no mercado.' },
+  tec:      { icon: '💻', title: 'Tecnologia e Inovação', desc: 'Seu perfil combina com Análise de Sistemas, Ciência da Computação, Engenharia de Software ou Defesa Cibernética. A área que mais emprega no Brasil.' },
+  humanas:  { icon: '📚', title: 'Educação e Humanas',   desc: 'Seu perfil combina com Pedagogia, Letras, Psicologia, Serviço Social ou Comunicação. Carreiras com propósito e impacto social.' }
+};
+
+function selectOption(btn) {
+  const step = btn.closest('.quiz-step');
+  step.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[currentStep] = btn.dataset.value;
+
+  setTimeout(() => nextStep(), 400);
+}
+
+function nextStep() {
+  const pct = (currentStep / totalSteps) * 100;
+  document.getElementById('quiz-prog').style.width = pct + '%';
+
+  if (currentStep < totalSteps) {
+    document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.remove('active');
+    currentStep++;
+    document.querySelector(`.quiz-step[data-step="${currentStep}"]`).classList.add('active');
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-prog').style.width = '100%';
+  document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
+
+  const area = answers[1] || 'negocios';
+  const r = results[area];
+  document.getElementById('result-icon').textContent = r.icon;
+  document.getElementById('result-title').textContent = r.title;
+  document.getElementById('result-desc').textContent = r.desc;
+
+  document.getElementById('quiz-result').style.display = 'block';
+  document.getElementById('quiz-result').classList.add('active');
+}
+
+function restartQuiz() {
+  currentStep = 1;
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-result').classList.remove('active');
+  document.getElementById('quiz-prog').style.width = '0%';
+  document.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
+  document.querySelector('.quiz-step[data-step="1"]').classList.add('active');
+}
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
